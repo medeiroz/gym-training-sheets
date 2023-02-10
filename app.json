@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "gymTrainingSheets",
-    "slug": "gymTrainingSheets",
+    "name": "Gym Training Sheets",
+    "slug": "gym-training-sheets",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,6 +21,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.medeiroz.gymTrainingSheets",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
@@ -28,6 +29,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "13265366-8b6d-4592-bf6d-04c846c71567"
+      }
+    },
+    "owner": "medeiroz"
   }
 }
