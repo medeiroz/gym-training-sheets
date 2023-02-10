@@ -1,4 +1,4 @@
-package com.medeiroz.gymTrainingSheets.newarchitecture.modules;
+package com.medeiroz.gymtrainingsheets.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;

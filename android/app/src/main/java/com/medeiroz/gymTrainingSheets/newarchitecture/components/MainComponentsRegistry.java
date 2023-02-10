@@ -1,4 +1,4 @@
-package com.medeiroz.gymTrainingSheets.newarchitecture.components;
+package com.medeiroz.gymtrainingsheets.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

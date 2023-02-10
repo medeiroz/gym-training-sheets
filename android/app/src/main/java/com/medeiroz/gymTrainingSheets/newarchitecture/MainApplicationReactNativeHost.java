@@ -1,4 +1,4 @@
-package com.medeiroz.gymTrainingSheets.newarchitecture;
+package com.medeiroz.gymtrainingsheets.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -20,9 +20,9 @@ import com.facebook.react.fabric.EmptyReactNativeConfig;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.medeiroz.gymTrainingSheets.BuildConfig;
-import com.medeiroz.gymTrainingSheets.newarchitecture.components.MainComponentsRegistry;
-import com.medeiroz.gymTrainingSheets.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.medeiroz.gymtrainingsheets.BuildConfig;
+import com.medeiroz.gymtrainingsheets.newarchitecture.components.MainComponentsRegistry;
+import com.medeiroz.gymtrainingsheets.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

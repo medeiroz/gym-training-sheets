@@ -1,4 +1,4 @@
-package com.medeiroz.gymTrainingSheets;
+package com.medeiroz.gymtrainingsheets;
 
 import android.os.Build;
 import android.os.Bundle;
