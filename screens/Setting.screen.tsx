@@ -1,28 +1,26 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import { useDispatch } from "react-redux";
-import { RootStackParamList } from "../App";
-import { logout } from "../features/auth/auth.slice";
-import { useAppSelector } from "../hooks";
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
+import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { useDispatch } from 'react-redux'
+import { logout } from '../features/auth/auth.slice'
+import { useAppSelector } from '../hooks'
+import { RootTabParamList } from '../navigator'
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<RootTabParamList, 'Setting'>
 
-export const HomeScreen = ({ route, navigation }: Props) => {
-  const dispatch = useDispatch();
-  const user = useAppSelector(state => state.auth.user);
+export const SettingScreen = ({ route, navigation }: Props) => {
+  const dispatch = useDispatch()
+  const user = useAppSelector((state) => state.auth.user)
 
   function dispatchLogout() {
     dispatch(logout())
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'Login' }],
-    });
   }
 
   if (user) {
     return (
       <View style={styles.container}>
-        {user.picture && <Image style={styles.image} source={{ uri: user.picture }} />}
+        {user.picture && (
+          <Image style={styles.image} source={{ uri: user.picture }} />
+        )}
         <Text style={styles.text2}>{user.name}</Text>
         <TouchableOpacity
           onPress={() => dispatchLogout()}
@@ -31,7 +29,7 @@ export const HomeScreen = ({ route, navigation }: Props) => {
           <Text>Sair</Text>
         </TouchableOpacity>
       </View>
-    );
+    )
   }
 
   return <Text>Loading...</Text>
@@ -64,4 +62,4 @@ const styles = StyleSheet.create({
     borderColor: '#CFCFCF',
     borderWidth: 1,
   },
-});
+})

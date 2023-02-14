@@ -6,27 +6,15 @@ import { Provider } from 'react-redux';
 import { persistor, store } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Text } from 'react-native';
-import { HomeScreen } from './screens/Home.screen';
+import { Navigator } from './navigator';
 import 'react-native-gesture-handler';
-
-export type RootStackParamList = {
-  Login: undefined;
-  Home: undefined;
-};
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
 
 
 export default function App() {
   return (
     <Provider store={store}>
       <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Home" component={HomeScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <Navigator />
       </PersistGate>
     </Provider>
   );

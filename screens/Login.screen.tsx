@@ -1,27 +1,22 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import * as WebBroser from 'expo-web-browser';
-import * as Google from 'expo-auth-session/providers/google';
+import { maybeCompleteAuthSession } from 'expo-web-browser';
+import { useAuthRequest } from 'expo-auth-session/providers/google';
 import { useEffect } from 'react';
 import { userService } from '../services/user.service';
 import { useDispatch } from 'react-redux';
 import { IUser } from '../contracts/auth/IUser';
 import { useAppSelector } from '../hooks';
 import { setToken, setUser } from '../features/auth/auth.slice';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../App';
 import Constants from 'expo-constants';
 
-WebBroser.maybeCompleteAuthSession();
+maybeCompleteAuthSession();
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
-
-export const LoginScreen = ({ route, navigation }: Props) => {
+export const LoginScreen = () => {
 
   const dispatch = useDispatch();
-  const token = useAppSelector(state => state.auth.token);
   const user = useAppSelector(state => state.auth.user);
 
-  const [request, response, promtAsync] = Google.useAuthRequest({
+  const [request, response, promtAsync] = useAuthRequest({
     androidClientId: Constants.expoConfig?.extra?.gcpOauthAndroidId,
     expoClientId: Constants.expoConfig?.extra?.gcpOauthExpoId,
   });
@@ -40,19 +35,11 @@ export const LoginScreen = ({ route, navigation }: Props) => {
     userService.getGoogleUser(accessToken)
     .then((user: IUser) => {
       dispatch(setUser(user));
-      navigation.reset({
-        index: 0,
-        routes: [{ name: 'Home' }],
-      });
     });
   }
 
   useEffect(() => {
     if (user) {
-      navigation.reset({
-        index: 0,
-        routes: [{name: 'Home'}],
-      });
     }
   }, []);
 
